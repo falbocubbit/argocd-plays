@@ -1,24 +1,24 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: ms-tester-app
+  name: ms-tester-app-v1
   namespace: argocd
 spec:
-    project: default
-    source:
-        repoURL: registry-1.docker.io
-        targetRevision: 0.1.0
-        helm:
-            valueFiles:
-            - values.yml
-            passCredentials: true
-        chart: antronella/ms-tester
-    destination:
-        server: 'https://kubernetes.default.svc'
-        namespace: default
-    syncPolicy:
-        syncOptions:
-        - CreateNamespace=false
-        automated:
-        selfHeal: true
-        prune: true
+  project: default
+  source:
+      repoURL: registry-1.docker.io
+      targetRevision: 0.1.0
+      helm:
+          valueFiles:
+          - values.yml
+          passCredentials: true
+      chart: antronella/ms-tester
+  destination:
+      server: 'https://kubernetes.default.svc'
+      namespace: default
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=false
+    automated:
+      selfHeal: true
+      prune: true
