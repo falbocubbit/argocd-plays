@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: {{ .Values.name }}
-        image: gigiozzz/{{ .Values.name }}:{{ .Values.version }}
+        image: gigiozzz/{{ .Values.nameImage }}:{{ .Values.version }}
         ports:
         - containerPort: 8080

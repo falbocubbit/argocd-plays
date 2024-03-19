@@ -9,6 +9,8 @@ spec:
     repoURL: https://github.com/falbocubbit/argocd-plays.git
     targetRevision: HEAD
     path: argocd-apps
+    directory:
+      exclude: '*.disabled'
   destination:
     server: https://kubernetes.default.svc #'cause we are running argo in the destination cluster
     namespace: default

@@ -7,12 +7,12 @@ spec:
   project: default
   source:
       repoURL: registry-1.docker.io
-      targetRevision: 0.1.0
+      targetRevision: 0.1.1
       helm:
           valueFiles:
           - values.yml
           passCredentials: true
-      chart: antronella/ms-tester
+      chart: antronella/ciccio
   destination:
       server: 'https://kubernetes.default.svc'
       namespace: default
