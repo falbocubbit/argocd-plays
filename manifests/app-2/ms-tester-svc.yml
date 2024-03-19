@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ms-tester-svc-v2
+  labels:
+    app: ms-tester
+spec:
+  ports:
+  - port: 8081
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: ms-tester

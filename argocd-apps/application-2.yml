@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: ms-tester-argocd-app
+  name: ms-tester-argocd-app-2
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/falbocubbit/argocd-plays.git
-    targetRevision: argocd
-    path: manifests
+    targetRevision: HEAD
+    path: manifests/app-1
   destination:
     server: https://kubernetes.default.svc #'cause we are running argo in the destination cluster
     namespace: default
