@@ -3,11 +3,11 @@ kind: Service
 metadata:
   name: {{ .Values.name }}-svc-2
   labels:
-    app: {{ .Values.name }}
+    app: {{ .Values.name }}-v2
 spec:
   ports:
   - port: 8081
     protocol: TCP
     targetPort: 8080
   selector:
-    app: {{ .Values.name }}
+    app: {{ .Values.name }}-v2
