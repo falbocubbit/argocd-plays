@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: ms-tester-app-set
+  namespace: argocd
+spec:
+  generators:
+  - list:
+      elements:
+      - cluster: docker-dekstop
+        url: 'https://kubernetes.default.svc'
+  template:
+    metadata:
+      name: '{{cluster}}-ms-tester'
+    spec:
+      project: default
+      source:
+        repoURL: registry-1.docker.io
+        targetRevision: 0.1.1
+        helm:
+            valueFiles:
+            - values_{{.cluster}}.yml
+            passCredentials: true
+      destination:
+        server: '{{.url}}'
+        namespace: applicationset-test
