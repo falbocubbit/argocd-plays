@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-tester-deployment
+  labels:
+    app: ms-tester
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ms-tester
+  template:
+    metadata:
+      labels:
+        app: ms-tester
+    spec:
+      containers:
+      - name: ms-tester
+        image: gigiozzz/ms-tester:0.0.1
+        ports:
+        - containerPort: 8080
