@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: ms-tester
-        image: gigiozzz/ms-tester:0.0.1
+        image: gigiozzz/ms-tester:0.0.2-bb
         ports:
         - containerPort: 8080
