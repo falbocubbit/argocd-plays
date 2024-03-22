@@ -25,6 +25,7 @@ spec:
       destination:
         server: '{{url}}'
         namespace: applicationset-test
-  # syncPolicy:
-  #   automated:
-  #     selfHeal: true
+      syncPolicy:
+        automated:
+          allowEmpty: true
+          prune: false

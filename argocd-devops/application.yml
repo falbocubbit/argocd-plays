@@ -2,21 +2,20 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: argocd-devops
-  namespace: argocd
 spec:
-  project: default
+  destination:
+    name: ''
+    namespace: default
+    server: 'https://kubernetes.default.svc'
   source:
-    repoURL: https://github.com/falbocubbit/argocd-plays.git
-    targetRevision: HEAD
     path: argocd-apps
+    repoURL: 'https://github.com/falbocubbit/argocd-plays.git'
+    targetRevision: HEAD
     directory:
       exclude: '*.disabled'
-  destination:
-    server: https://kubernetes.default.svc #'cause we are running argo in the destination cluster
-    namespace: default
-  # syncPolicy:
-  #   automated:
-  #     prune: false
-  #     selfHeal: true
-  #   syncOptions:
-  #   - CreateNamespace=false
+  sources: []
+  project: default
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
