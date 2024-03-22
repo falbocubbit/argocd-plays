@@ -14,8 +14,9 @@ spec:
   destination:
     server: https://kubernetes.default.svc #'cause we are running argo in the destination cluster
     namespace: default
-  syncPolicy:
-    syncOptions:
-    - CreateNamespace=false
-    # automated:
-    #   selfHeal: true
+  # syncPolicy:
+  #   automated:
+  #     prune: false
+  #     selfHeal: true
+  #   syncOptions:
+  #   - CreateNamespace=false
