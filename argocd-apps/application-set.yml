@@ -27,5 +27,6 @@ spec:
         namespace: applicationset-test
       syncPolicy:
         automated:
-          allowEmpty: true
+          allowEmpty: false
           prune: false
+          selfHeal: true
